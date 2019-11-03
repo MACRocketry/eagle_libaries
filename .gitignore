@@ -1,0 +1,11 @@
+# ignore directories
+.directory
+.svn
+.*/
+
+# ignore files
+*.patch
+
+# ignore eagle backup/caches
+*.l#*
+DESCRIPTION
