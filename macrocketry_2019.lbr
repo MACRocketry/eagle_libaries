@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.1">
+<eagle version="9.5.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="yes"/>
@@ -52,7 +52,7 @@
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
@@ -178,6 +178,22 @@
 <pad name="P$3" x="19.685" y="13.081" drill="0.6" diameter="1.9304"/>
 <pad name="P$4" x="19.685" y="15.621" drill="0.6" diameter="1.9304"/>
 </package>
+<package name="10DOF-GY-91">
+<wire x1="-6.35" y1="9" x2="8.28" y2="9" width="0.127" layer="21"/>
+<wire x1="8.28" y1="9" x2="8.28" y2="-12" width="0.127" layer="21"/>
+<wire x1="8.28" y1="-12" x2="-6.35" y2="-12" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="-12" x2="-6.35" y2="9" width="0.127" layer="21"/>
+<pad name="VIN" x="-3.81" y="7.62" drill="1" diameter="1.4224" shape="long"/>
+<pad name="3V3" x="-3.81" y="5.08" drill="1" diameter="1.4224" shape="long"/>
+<pad name="GND" x="-3.81" y="2.54" drill="1" diameter="1.4224" shape="long"/>
+<pad name="SCL" x="-3.81" y="0" drill="1" diameter="1.4224" shape="long"/>
+<pad name="SDA" x="-3.81" y="-2.54" drill="1" diameter="1.4224" shape="long"/>
+<pad name="SAO" x="-3.81" y="-5.08" drill="1" diameter="1.4224" shape="long"/>
+<pad name="NCS" x="-3.81" y="-7.62" drill="1" diameter="1.4224" shape="long"/>
+<pad name="CSB" x="-3.81" y="-10.16" drill="1" diameter="1.4224" shape="long"/>
+<circle x="4.31" y="5.08" radius="2" width="0.127" layer="21"/>
+<circle x="4.36" y="-8.22" radius="2" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="10DOF-WAVESHARE">
@@ -209,6 +225,22 @@
 <text x="-3.81" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
 </symbol>
 <symbol name="BUCK_CONVERTER_3V3">
+</symbol>
+<symbol name="10DOF-GY-91">
+<wire x1="-7.62" y1="10.16" x2="-7.62" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-12.7" x2="5.08" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-12.7" x2="5.08" y2="10.16" width="0.254" layer="94"/>
+<wire x1="5.08" y1="10.16" x2="-7.62" y2="10.16" width="0.254" layer="94"/>
+<pin name="VIN" x="-12.7" y="7.62" length="middle"/>
+<pin name="3V3" x="-12.7" y="5.08" length="middle"/>
+<pin name="GND" x="-12.7" y="2.54" length="middle"/>
+<pin name="SCL" x="-12.7" y="0" length="middle"/>
+<pin name="SDA" x="-12.7" y="-2.54" length="middle"/>
+<pin name="SAO" x="-12.7" y="-5.08" length="middle"/>
+<pin name="NCS" x="-12.7" y="-7.62" length="middle"/>
+<pin name="CSB" x="-12.7" y="-10.16" length="middle"/>
+<text x="8.89" y="-7.62" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<text x="-5.08" y="10.795" size="1.778" layer="95">&gt;NAME</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -245,6 +277,28 @@
 <connect gate="G$1" pin="GND" pad="GND"/>
 <connect gate="G$1" pin="MISO" pad="MISO"/>
 <connect gate="G$1" pin="MOSI" pad="MOSI"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="10DOF-GY91">
+<gates>
+<gate name="G$1" symbol="10DOF-GY-91" x="33.02" y="2.54"/>
+</gates>
+<devices>
+<device name="" package="10DOF-GY-91">
+<connects>
+<connect gate="G$1" pin="3V3" pad="3V3"/>
+<connect gate="G$1" pin="CSB" pad="CSB"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="NCS" pad="NCS"/>
+<connect gate="G$1" pin="SAO" pad="SAO"/>
+<connect gate="G$1" pin="SCL" pad="SCL"/>
+<connect gate="G$1" pin="SDA" pad="SDA"/>
+<connect gate="G$1" pin="VIN" pad="VIN"/>
 </connects>
 <technologies>
 <technology name=""/>
